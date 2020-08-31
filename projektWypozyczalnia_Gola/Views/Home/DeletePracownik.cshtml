@@ -1,0 +1,87 @@
+﻿@model projektWypozyczalnia_Gola.Models.pracownik
+
+@{
+    ViewBag.Title = "Usuwanie";
+}
+
+<hr />
+<h4>Jesteś pewny że chcesz usunąć ten rekord?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_zatr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_zatr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_telefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_telefonu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wypozyczalnia.numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wypozyczalnia.numer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do widoku wypożyczalni", "Wypozyczalnia")
+        </div>
+    }
+</div>

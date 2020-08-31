@@ -1,0 +1,120 @@
+﻿@model IEnumerable<projektWypozyczalnia_Gola.Models.samochod>
+
+@{
+    ViewBag.Title = "Samochod";
+}
+
+<hr />
+<h4>Samochody</h4>
+<hr />
+
+@using (Html.BeginForm("Samochod", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Wyszukaj">
+}
+<hr />
+<p>
+    @Html.ActionLink("Dodaj nowy samochód", "CreateSamochod")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.wypozyczalnia_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kategoria_id)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.marka).ToHtmlString(), "Samochod", new { sorting = ViewBag.marka })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.model).ToHtmlString(), "Samochod", new { sorting = ViewBag.model })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.rok_prod).ToHtmlString(), "Samochod", new { sorting = ViewBag.rok_prod })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kolor)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.poj_silnika).ToHtmlString(), "Samochod", new { sorting = ViewBag.poj_silnika })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opis)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.cena).ToHtmlString(), "Samochod", new { sorting = ViewBag.cena })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilosc_drzwi)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.kategoria.segment).ToHtmlString(), "Samochod", new { sorting = ViewBag.segment })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wypozyczalnia.nazwa)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3" style="color: red">
+                Nie znaleziono żadnego wyniku
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wypozyczalnia_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategoria_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rok_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kolor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.poj_silnika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilosc_drzwi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategoria.segment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wypozyczalnia.nazwa)
+                </td>
+                <td>
+                    @Html.ActionLink("Edytuj", "EditSamochod", new { id = item.id }) |
+                    @Html.ActionLink("Szczegóły", "DetailsSamochod", new { id = item.id }) |
+                    @Html.ActionLink("Usuń", "DeleteSamochod", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+
+    </table>
+<div>
+    @Html.ActionLink("Wróć do widoku głównego", "Index")
+</div>

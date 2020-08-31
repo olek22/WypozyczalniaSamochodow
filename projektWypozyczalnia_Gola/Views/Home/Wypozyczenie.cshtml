@@ -1,0 +1,76 @@
+﻿@model IEnumerable<projektWypozyczalnia_Gola.Models.wypozyczenie_has_pracownik>
+
+@{
+    ViewBag.Title = "Wypozyczenie";
+}
+
+<hr />
+<h4>Wypożyczenia</h4>
+<hr />
+@using (Html.BeginForm("Wypozyczenie", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Wyszukaj">
+}
+<p>
+    @Html.ActionLink("Dodaj nowe wypożyczenie", "CreateWypozyczenie")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Oddane:
+        </th>
+        <th>
+            ID pracownika:
+        </th>
+        <th>
+            @Html.ActionLink("Nazwisko pracownika", "Wypozyczenie", new { sorting = ViewBag.nazwisko })
+        </th>
+        <th>
+            ID wypożyczenia:
+        </th>
+        <th>
+            @Html.ActionLink("Nazwa wypożyczalni", "Wypozyczenie", new { sorting = ViewBag.nazwa })
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3" style="color: red">
+                Nie znaleziono żadnego wyniku
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wyp_odd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pracownik_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pracownik.nazwisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wypozyczenie_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pracownik.wypozyczalnia.nazwa)
+                </td>
+                <td>
+                    @Html.ActionLink("Edytowanie", "EditWypozyczenie", new { wypozyczenie_id = item.wypozyczenie_id, pracownik_id = item.pracownik_id }) |
+                    @Html.ActionLink("Szczegóły", "DetailsWypozyczenie", new { wypozyczenie_id = item.wypozyczenie_id, pracownik_id = item.pracownik_id }) |
+                    @Html.ActionLink("Usuń", "DeleteWypozyczenie", new { wypozyczenie_id = item.wypozyczenie_id, pracownik_id = item.pracownik_id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Wróć do widoku głównego", "Index")
+</div>

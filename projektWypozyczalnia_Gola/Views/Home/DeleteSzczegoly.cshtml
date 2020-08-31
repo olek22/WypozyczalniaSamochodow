@@ -1,0 +1,71 @@
+﻿@model projektWypozyczalnia_Gola.Models.wypozyczenie
+
+@{
+    ViewBag.Title = "DeleteSzczegoly";
+}
+
+<hr />
+<h4>Jesteś pewny że chcesz usunąć ten rekord?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_wypozyczenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_wypozyczenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_konca_wypoz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_konca_wypoz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_oddania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_oddania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.samochod.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.samochod.marka)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do widoku szczegółów", "Szczegoly")
+        </div>
+    }
+</div>

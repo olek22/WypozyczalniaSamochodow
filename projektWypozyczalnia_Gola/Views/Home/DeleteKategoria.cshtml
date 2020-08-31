@@ -1,0 +1,31 @@
+﻿@model projektWypozyczalnia_Gola.Models.kategoria
+
+@{
+    ViewBag.Title = "DeleteKategoria";
+}
+
+<hr />
+<h4>Jesteś pewny że chcesz usunąć ten rekord?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.segment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.segment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do widoku kategorii", "Kategoria")
+        </div>
+    }
+</div>

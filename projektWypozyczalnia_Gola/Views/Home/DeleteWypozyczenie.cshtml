@@ -1,0 +1,47 @@
+﻿@model projektWypozyczalnia_Gola.Models.wypozyczenie_has_pracownik
+
+@{
+    ViewBag.Title = "DeleteWypozyczenie";
+}
+
+<hr />
+<h4>Jesteś pewny że chcesz usunąć ten rekord?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.wyp_odd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wyp_odd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pracownik.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pracownik.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wypozyczenie.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wypozyczenie.id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do widoku wypożyczeń", "Wypozyczenie")
+        </div>
+    }
+</div>

@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WypAutModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="kategoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="segment" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="klient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="nazwisko" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ulica" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="numer_domu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="miasto" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="kod" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="nip" Type="char" MaxLength="12" />
+    <Property Name="nr_telefonu" Type="char" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="pracownik">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wypozyczalnia_id" Type="int" Nullable="false" />
+    <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="nazwisko" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="data_zatr" Type="date" Nullable="false" />
+    <Property Name="nr_telefonu" Type="char" MaxLength="16" />
+    <Property Name="ulica" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="miasto" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="kod" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="samochod">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wypozyczalnia_id" Type="int" Nullable="false" />
+    <Property Name="kategoria_id" Type="int" Nullable="false" />
+    <Property Name="marka" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="rok_prod" Type="date" Nullable="false" />
+    <Property Name="kolor" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="poj_silnika" Type="int" Nullable="false" />
+    <Property Name="opis" Type="varchar" MaxLength="50" />
+    <Property Name="cena" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ilosc_drzwi" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="pracownik_id" Type="int" />
+  </EntityType>
+  <EntityType Name="wypozyczalnia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numer" Type="char" MaxLength="8" />
+    <Property Name="ulica" Type="varchar" MaxLength="24" />
+    <Property Name="miasto" Type="varchar" MaxLength="24" />
+    <Property Name="kod" Type="char" MaxLength="6" />
+    <Property Name="nazwa" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="wypozyczenie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="samochod_id" Type="int" Nullable="false" />
+    <Property Name="klient_id" Type="int" Nullable="false" />
+    <Property Name="data_wypozyczenia" Type="date" />
+    <Property Name="data_konca_wypoz" Type="date" />
+    <Property Name="data_oddania" Type="date" />
+    <Property Name="cena" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="wypozyczenie_has_pracownik">
+    <Key>
+      <PropertyRef Name="wypozyczenie_id" />
+      <PropertyRef Name="pracownik_id" />
+    </Key>
+    <Property Name="wypozyczenie_id" Type="int" Nullable="false" />
+    <Property Name="pracownik_id" Type="int" Nullable="false" />
+    <Property Name="wyp_odd" Type="bit" />
+  </EntityType>
+  <Association Name="FK__pracownik__wypoz__29572725">
+    <End Role="wypozyczalnia" Type="Self.wypozyczalnia" Multiplicity="1" />
+    <End Role="pracownik" Type="Self.pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wypozyczalnia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pracownik">
+        <PropertyRef Name="wypozyczalnia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__samochod__katego__2C3393D0">
+    <End Role="kategoria" Type="Self.kategoria" Multiplicity="1" />
+    <End Role="samochod" Type="Self.samochod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="samochod">
+        <PropertyRef Name="kategoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__samochod__wypozy__2D27B809">
+    <End Role="wypozyczalnia" Type="Self.wypozyczalnia" Multiplicity="1" />
+    <End Role="samochod" Type="Self.samochod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wypozyczalnia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="samochod">
+        <PropertyRef Name="wypozyczalnia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__klien__300424B4">
+    <End Role="klient" Type="Self.klient" Multiplicity="1" />
+    <End Role="wypozyczenie" Type="Self.wypozyczenie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wypozyczenie">
+        <PropertyRef Name="klient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__praco__34C8D9D1">
+    <End Role="pracownik" Type="Self.pracownik" Multiplicity="1" />
+    <End Role="wypozyczenie_has_pracownik" Type="Self.wypozyczenie_has_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pracownik">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wypozyczenie_has_pracownik">
+        <PropertyRef Name="pracownik_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__samoc__30F848ED">
+    <End Role="samochod" Type="Self.samochod" Multiplicity="1" />
+    <End Role="wypozyczenie" Type="Self.wypozyczenie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="samochod">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wypozyczenie">
+        <PropertyRef Name="samochod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__wypoz__33D4B598">
+    <End Role="wypozyczenie" Type="Self.wypozyczenie" Multiplicity="1" />
+    <End Role="wypozyczenie_has_pracownik" Type="Self.wypozyczenie_has_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wypozyczenie">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wypozyczenie_has_pracownik">
+        <PropertyRef Name="wypozyczenie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ToTable">
+    <End Role="pracownik" Type="Self.pracownik" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pracownik">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="pracownik_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WypAutModelStoreContainer">
+    <EntitySet Name="kategoria" EntityType="Self.kategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="klient" EntityType="Self.klient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pracownik" EntityType="Self.pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="samochod" EntityType="Self.samochod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wypozyczalnia" EntityType="Self.wypozyczalnia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wypozyczenie" EntityType="Self.wypozyczenie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wypozyczenie_has_pracownik" EntityType="Self.wypozyczenie_has_pracownik" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__pracownik__wypoz__29572725" Association="Self.FK__pracownik__wypoz__29572725">
+      <End Role="wypozyczalnia" EntitySet="wypozyczalnia" />
+      <End Role="pracownik" EntitySet="pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__samochod__katego__2C3393D0" Association="Self.FK__samochod__katego__2C3393D0">
+      <End Role="kategoria" EntitySet="kategoria" />
+      <End Role="samochod" EntitySet="samochod" />
+    </AssociationSet>
+    <AssociationSet Name="FK__samochod__wypozy__2D27B809" Association="Self.FK__samochod__wypozy__2D27B809">
+      <End Role="wypozyczalnia" EntitySet="wypozyczalnia" />
+      <End Role="samochod" EntitySet="samochod" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__klien__300424B4" Association="Self.FK__wypozycze__klien__300424B4">
+      <End Role="klient" EntitySet="klient" />
+      <End Role="wypozyczenie" EntitySet="wypozyczenie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__praco__34C8D9D1" Association="Self.FK__wypozycze__praco__34C8D9D1">
+      <End Role="pracownik" EntitySet="pracownik" />
+      <End Role="wypozyczenie_has_pracownik" EntitySet="wypozyczenie_has_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__samoc__30F848ED" Association="Self.FK__wypozycze__samoc__30F848ED">
+      <End Role="samochod" EntitySet="samochod" />
+      <End Role="wypozyczenie" EntitySet="wypozyczenie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__wypoz__33D4B598" Association="Self.FK__wypozycze__wypoz__33D4B598">
+      <End Role="wypozyczenie" EntitySet="wypozyczenie" />
+      <End Role="wypozyczenie_has_pracownik" EntitySet="wypozyczenie_has_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ToTable" Association="Self.FK_Users_ToTable">
+      <End Role="pracownik" EntitySet="pracownik" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

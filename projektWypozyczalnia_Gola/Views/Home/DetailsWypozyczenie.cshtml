@@ -1,0 +1,41 @@
+﻿@model projektWypozyczalnia_Gola.Models.wypozyczenie_has_pracownik
+
+@{
+    ViewBag.Title = "DetailsWypozyczenie";
+}
+
+<div>
+    <hr />
+    <h4>Szczegóły</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.wyp_odd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wyp_odd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pracownik.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pracownik.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wypozyczenie.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wypozyczenie.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "EditWypozyczenie", new { wypozyczenie_id = Model.wypozyczenie_id, pracownik_id = Model.pracownik_id }) |
+    @Html.ActionLink("Wróć do widoku wypożyczeń", "Wypozyczenie")
+</p>

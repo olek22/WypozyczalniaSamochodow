@@ -1,0 +1,103 @@
+﻿@model projektWypozyczalnia_Gola.Models.samochod
+
+@{
+    ViewBag.Title = "DeleteSamochod";
+}
+
+<hr />
+<h4>Jesteś pewny że chcesz usunąć ten rekord?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rok_prod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rok_prod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kolor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kolor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poj_silnika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poj_silnika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilosc_drzwi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilosc_drzwi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kategoria.segment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategoria.segment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wypozyczalnia.numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wypozyczalnia.numer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do widoku samochodów", "Samochod")
+        </div>
+    }
+</div>

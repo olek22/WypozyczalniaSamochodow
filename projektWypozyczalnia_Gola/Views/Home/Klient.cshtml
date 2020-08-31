@@ -1,0 +1,97 @@
+﻿@model IEnumerable<projektWypozyczalnia_Gola.Models.klient>
+
+@{
+    ViewBag.Title = "Klient";
+}
+
+<hr />
+<h4>Klienci</h4>
+<hr />
+
+@using (Html.BeginForm("Klient", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Wyszukaj">
+}
+<hr />
+<p>
+    @Html.ActionLink("Dodaj nowego klienta", "CreateKlient")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.imie)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.nazwisko).ToHtmlString(), "Klient", new { sorting = ViewBag.nazwisko })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ulica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numer_domu)
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.miasto).ToHtmlString(), "Klient", new { sorting = ViewBag.miasto })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nr_telefonu)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3" style="color: red">
+                Nie znaleziono żadnego wyniku
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ulica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.miasto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numer_domu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nr_telefonu)
+                </td>
+                <td>
+                    @Html.ActionLink("Edytuj", "EditKlient", new { id = item.id }) |
+                    @Html.ActionLink("Szczegóły", "DetailsKlient", new { id = item.id }) |
+                    @Html.ActionLink("Usuń", "DeleteKlient", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Wróć do widoku głównego", "Index")
+</div>

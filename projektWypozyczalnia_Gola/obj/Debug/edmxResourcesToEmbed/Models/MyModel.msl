@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WypAutModelStoreContainer" CdmEntityContainer="WypAutEntities">
+    <EntitySetMapping Name="kategorias">
+      <EntityTypeMapping TypeName="WypAutModel.kategoria">
+        <MappingFragment StoreEntitySet="kategoria">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="segment" ColumnName="segment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klients">
+      <EntityTypeMapping TypeName="WypAutModel.klient">
+        <MappingFragment StoreEntitySet="klient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="numer_domu" ColumnName="numer_domu" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="nip" ColumnName="nip" />
+          <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pracowniks">
+      <EntityTypeMapping TypeName="WypAutModel.pracownik">
+        <MappingFragment StoreEntitySet="pracownik">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="wypozyczalnia_id" ColumnName="wypozyczalnia_id" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="data_zatr" ColumnName="data_zatr" />
+          <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="samochods">
+      <EntityTypeMapping TypeName="WypAutModel.samochod">
+        <MappingFragment StoreEntitySet="samochod">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="wypozyczalnia_id" ColumnName="wypozyczalnia_id" />
+          <ScalarProperty Name="kategoria_id" ColumnName="kategoria_id" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="rok_prod" ColumnName="rok_prod" />
+          <ScalarProperty Name="kolor" ColumnName="kolor" />
+          <ScalarProperty Name="poj_silnika" ColumnName="poj_silnika" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="ilosc_drzwi" ColumnName="ilosc_drzwi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WypAutModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="pracownik_id" ColumnName="pracownik_id" />
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wypozyczalnias">
+      <EntityTypeMapping TypeName="WypAutModel.wypozyczalnia">
+        <MappingFragment StoreEntitySet="wypozyczalnia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wypozyczenies">
+      <EntityTypeMapping TypeName="WypAutModel.wypozyczenie">
+        <MappingFragment StoreEntitySet="wypozyczenie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="samochod_id" ColumnName="samochod_id" />
+          <ScalarProperty Name="klient_id" ColumnName="klient_id" />
+          <ScalarProperty Name="data_wypozyczenia" ColumnName="data_wypozyczenia" />
+          <ScalarProperty Name="data_konca_wypoz" ColumnName="data_konca_wypoz" />
+          <ScalarProperty Name="data_oddania" ColumnName="data_oddania" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wypozyczenie_has_pracownik">
+      <EntityTypeMapping TypeName="WypAutModel.wypozyczenie_has_pracownik">
+        <MappingFragment StoreEntitySet="wypozyczenie_has_pracownik">
+          <ScalarProperty Name="wypozyczenie_id" ColumnName="wypozyczenie_id" />
+          <ScalarProperty Name="pracownik_id" ColumnName="pracownik_id" />
+          <ScalarProperty Name="wyp_odd" ColumnName="wyp_odd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

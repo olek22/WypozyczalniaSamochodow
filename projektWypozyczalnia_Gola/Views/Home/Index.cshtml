@@ -1,0 +1,78 @@
+﻿@model IEnumerable<projektWypozyczalnia_Gola.Models.User>
+@{
+    ViewBag.Title = "Strona główna";
+}
+
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <hr />
+        <p>
+            <h4>
+                Witaj na stronie do zarządzania wypożyczalnią samochodów
+            </h4><hr />
+                <strong>Dane Twojego konta:</strong>
+        </p>
+
+    foreach (var item in Model)
+                {
+                    if (@HttpContext.Current.User.Identity.Name == item.Email)
+                    {
+            <dl class="dl-horizontal">
+                <dt>
+                    Id:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </dd>
+
+                <dt>
+                    Imię:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </dd>
+
+                <dt>
+                    Nazwisko:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </dd>
+
+                <dt>
+                    Email:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </dd>
+
+                <dt>
+                    Data urodzenia:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </dd>
+
+                <dt>
+                    ID pracownika:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.pracownik_id)
+                </dd>
+
+            </dl>
+        }
+}
+}
+            <a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a>
+}

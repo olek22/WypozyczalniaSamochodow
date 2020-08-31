@@ -1,0 +1,68 @@
+﻿@model IEnumerable<projektWypozyczalnia_Gola.Models.wypozyczenie>
+
+@{
+    ViewBag.Title = "Szczegoly";
+}
+
+<hr />
+<h4>Szczegoly wypożyczeń</h4>
+<hr />
+<p>
+    @Html.ActionLink("Stwórz nowy rekord", "CreateSzczegoly")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.data_wypozyczenia).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.data_wypozyczenia })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.data_konca_wypoz).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.data_konca_wypoz })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.data_oddania).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.data_oddania })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.cena).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.cena })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.klient.nazwisko).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.nazwisko })
+        </th>
+        <th>
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.samochod.marka).ToHtmlString(), "Szczegoly", new { sorting = ViewBag.marka })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_wypozyczenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_konca_wypoz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_oddania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.klient.nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.samochod.marka)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "EditSzczegoly", new { id = item.id }) |
+                @Html.ActionLink("Szczegóły", "DetailsSzczegoly", new { id = item.id }) |
+                @Html.ActionLink("Usuń", "DeleteSzczegoly", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Wróć do widoku głównego", "Index")
+</div>

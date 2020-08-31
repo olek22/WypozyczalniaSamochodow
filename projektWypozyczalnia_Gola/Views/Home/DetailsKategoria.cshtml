@@ -1,0 +1,25 @@
+﻿@model projektWypozyczalnia_Gola.Models.kategoria
+
+@{
+    ViewBag.Title = "DetailsKategoria";
+}
+
+<div>
+    <hr />
+    <h4>Szczegóły</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.segment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.segment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "EditKategoria", new { id = Model.id }) |
+    @Html.ActionLink("Wróć do widoku kategorii", "Kategoria")
+</p>

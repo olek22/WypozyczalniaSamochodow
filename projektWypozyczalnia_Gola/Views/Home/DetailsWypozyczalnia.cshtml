@@ -1,0 +1,57 @@
+﻿@model projektWypozyczalnia_Gola.Models.wypozyczalnia
+
+@{
+    ViewBag.Title = "DetailsWypozyczalnia";
+}
+
+<div>
+    <hr />
+    <h4>Szczegóły</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "EditWypozyczalnia", new { id = Model.id }) |
+    @Html.ActionLink("Wróć do widoku wypożyczalni", "Wypozyczalnia")
+</p>

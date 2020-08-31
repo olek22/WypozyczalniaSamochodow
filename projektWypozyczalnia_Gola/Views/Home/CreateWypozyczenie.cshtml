@@ -1,0 +1,55 @@
+﻿@model projektWypozyczalnia_Gola.Models.wypozyczenie_has_pracownik
+
+@{
+    ViewBag.Title = "CreateWypozyczenie";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    <h4>Dodaj nowe wypożyczenie</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">ID wypożyczenia:</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.wypozyczenie_id, new SelectList(ViewBag.listW), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.wypozyczenie_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">ID pracownika:</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.pracownik_id, new SelectList(ViewBag.listP), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.pracownik_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Oddany:</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.wyp_odd, new[] { new SelectListItem { Text = "True", Value = "1" }, new SelectListItem { Text = "False", Value = "0" } },
+            new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.wyp_odd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Dodaj" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Wróć do widoku wypożyczeń", "Wypozyczenie")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
