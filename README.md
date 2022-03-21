@@ -40,9 +40,9 @@ zarządzać systemem i realizować wypożyczenia;
 - User - tabela utożsamia konto użtkownika, jest powiązana z pracownikiem.
 
 <p align="center">
-![model](https://user-images.githubusercontent.com/56295726/159260647-66ed3acd-d094-44f4-99ae-aa133c8b17aa.PNG)
+  <img src="https://user-images.githubusercontent.com/56295726/159260647-66ed3acd-d094-44f4-99ae-aa133c8b17aa.PNG" />
 </p>
-  
+
 ## Korzystanie z apliakcji
 
 Projekt przedstawia aplikację stworzoną do zarządzania bazą danych. Aby przejść do aplikacji trzeba się 
