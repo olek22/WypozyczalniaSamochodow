@@ -183,9 +183,12 @@ namespace projektWypozyczalnia_Gola.Controllers
             var verifyUrl = "/User/"+emailFor+"/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-            var fromEmail = new MailAddress("golaTestApp@gmail.com", "Twórca aplickacji Olek Gola");
+            var fromEmail = new MailAddress("golaTestApp@gmail.com", "Twórca aplickacji Aleksander Gola");
+            //var toEmail = new MailAddress(emailID);
+            //var fromEmailPassword = "Test123!"; // aktualne hasło
+
             var toEmail = new MailAddress(emailID);
-            var fromEmailPassword = "Test123!"; // aktualne hasło
+            var fromEmailPassword = System.Configuration.ConfigurationManager.AppSettings["formEmailPassword"].ToString();
 
             string subject = "";
             string body = "";
@@ -196,12 +199,17 @@ namespace projektWypozyczalnia_Gola.Controllers
                 body = "<br/><br/> Dostaliśmy zgłoszenie o zapomnienu przez Ciebie hasła. " +
                     "Wejdź w link poniżej żeby zrestartować hasło" + " <br/><br/><a href='" + link + "'>" + link +
                     "</a> ";
-            }
-            else if (emailFor == "ResetPassword")
-            {
                 subject = "Twoje konto zostało stworzone";
                 body = "<br/><br/> Cieszę się, że udało Ci się stworzyć konto." +
                     "Wejdź w link poniżej żeby zweryfikwać konto" + " <br/><br/><a href='" + link + "'>" + link +
+                    "</a> ";
+            }
+            else if (emailFor == "ResetPassword")
+            {
+                subject = "Resetowanie hasła";
+
+                body = "<br/><br/> Dostaliśmy zgłoszenie o zapomnienu przez Ciebie hasła. " +
+                    "Wejdź w link poniżej żeby zrestartować hasło" + " <br/><br/><a href='" + link + "'>" + link +
                     "</a> ";
             }
 
