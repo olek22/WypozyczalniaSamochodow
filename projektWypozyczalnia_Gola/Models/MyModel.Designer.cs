@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\HP\Desktop\AI2_C#\projektWypozyczalnia_Gola\projektWypozyczalnia_Gola\Models\MyModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\HP\Documents\studia\Projects\projektWypozyczalnia_Gola\projektWypozyczalnia_Gola\Models\MyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

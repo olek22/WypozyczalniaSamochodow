@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0f9ca9c7d0fa4c3fa359e64fa5f9ebf7" Name="Diagram1" ZoomLevel="53">
+      <Diagram DiagramId="0f9ca9c7d0fa4c3fa359e64fa5f9ebf7" Name="Diagram1" ZoomLevel="57">
         <EntityTypeShape EntityType="WypAutModel.kategoria" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="WypAutModel.klient" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WypAutModel.pracownik" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WypAutModel.klient" Width="1.5" PointX="5.625" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WypAutModel.pracownik" Width="1.5" PointX="3.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="WypAutModel.samochod" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WypAutModel.User" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WypAutModel.wypozyczalnia" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WypAutModel.User" Width="1.5" PointX="1.375" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WypAutModel.wypozyczalnia" Width="1.5" PointX="1.375" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="WypAutModel.wypozyczenie" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WypAutModel.wypozyczenie_has_pracownik" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WypAutModel.wypozyczenie_has_pracownik" Width="1.5" PointX="5.5" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="WypAutModel.FK__samochod__katego__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="WypAutModel.FK__wypozycze__klien__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="WypAutModel.FK__pracownik__wypoz__29572725" ManuallyRouted="false" />

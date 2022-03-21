@@ -627,8 +627,10 @@ namespace projektWypozyczalnia_Gola.Controllers
         #region // EditKategoria
         public ActionResult EditKategoria(int id)
         {
-            var wypozyczalniaToEdit = _db.wypozyczalnias.Find(id);
-            return View(wypozyczalniaToEdit);
+            var kategoriaToEdit = _db.kategorias.Find(id);
+            return View(kategoriaToEdit);
+
+
         }
         [HttpPost]
         public ActionResult EditKategoria(kategoria kategoriaToEdit)
