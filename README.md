@@ -62,5 +62,6 @@ wpisania określonej frazy, a także sortować. W przyszłości baza będzie zaw
 więc wyżej wymienione funkcji będą niezwykle przydatne. W aplikacji mamy również dostęp to mini 
 galerii zdjęć w formie karuzeli.
 
-![2022-03-21 18-08-19](https://user-images.githubusercontent.com/56295726/159327933-b1200226-f1b0-4d90-b2ae-c4672fcfe035.gif)
-
+<p align="center">
+<img src=https://user-images.githubusercontent.com/56295726/159327933-b1200226-f1b0-4d90-b2ae-c4672fcfe035.gif />
+</p>
