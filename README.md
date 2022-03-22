@@ -65,3 +65,9 @@ galerii zdjęć w formie karuzeli.
 <p align="center">
 <img src=https://user-images.githubusercontent.com/56295726/159327933-b1200226-f1b0-4d90-b2ae-c4672fcfe035.gif />
 </p>
+
+## License & copyright
+
+Copyright (c) 2020 Aleksander Gola
+
+Licensed under the [MIT License](LICENSE).
